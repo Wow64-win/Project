@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance Scanner</title>
+
+
+    
+    <link rel="stylesheet" href="style.css">
+    
+
+
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Student Attendance Scanner</h1>
+        <p class="subtitle"> Scan a student QR/barcode or enter ID manually</p>
+
+        <div class="scanner-card">
+            
+            <div id="reader"></div>
+        </div>
+
+        <div class="manual-card">
+            <h3>Manual Attendance Entry</h3>
+            <form id="attendanceForm">
+                <input type="text" id="studentIdInput" placeholder="Enter Student ID (e.g. S1001)" required>
+                <button type="submit">Mark Present</button>
+            </form>
+        </div>
+
+        <div class="log-card">
+            <h3>Today's Attendance Log</h3>
+            <table id="attendanceTable">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Time Checked In</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="logTableBody">
+                    
+                    <tr class="empty-row">
+                        <td colspan="3">no attendance recorded yet today.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
