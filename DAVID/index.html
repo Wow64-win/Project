@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CvSU Attendance Scanner with Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+</head>
+<body>
 
+    <div class="container">
+        <h1>CvSU Main (Indang) Attendance</h1>
+        <p class="subtitle">Scan QR code or enter ID starting with 26101.</p>
+
+        <!-- Camera Scanner Card -->
+        <div class="scanner-card">
+            <div id="reader"></div>
+        </div>
+
+        <!-- Manual Attendance Entry -->
+        <div class="manual-card">
+            <h3>Manual Attendance Entry</h3>
+            <form id="attendanceForm">
+                <input type="text" id="studentIdInput" placeholder="Enter Student ID (e.g. 261010001)" required>
+                <button type="submit">Mark Present</button>
+            </form>
+        </div>
+
+        <!-- NEW: Student Registration Form -->
+        <div class="register-card">
+            <h3>Register New Student to Database</h3>
+            <form id="registerForm">
+                <input type="text" id="newId" placeholder="ID (must start with 26101)" required>
+                <input type="text" id="newName" placeholder="Full Name" required>
+                <input type="text" id="newProgram" placeholder="Program / Course (e.g. BSIT)" required>
+                <button type="submit" class="register-btn">Save Student</button>
+            </form>
+        </div>
+
+        <!-- Attendance Logs -->
+        <div class="log-card">
+            <div class="log-header">
+                <h3>Today's Attendance Log</h3>
+                <button id="exportBtn" class="export-btn" onclick="exportLogsToText()">Download Log File</button>
+            </div>
+            <table id="attendanceTable">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Program / Course</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="logTableBody">
+                    <tr class="empty-row">
+                        <td colspan="4">No attendance recorded yet today.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
