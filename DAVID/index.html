@@ -3,65 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CvSU Attendance Scanner with Registration</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CvSU Main (Indang) - Attendance</title> 
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
+<body style="margin: 0;"> 
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-brand">CvSU Attendance System</div>
+        <ul class="nav-links">
+           
+            <li><a id=navHome class="active" onclick="switchTab('home')">Home / Dashboard</a></li>
+            <li><a id="navAbout" onclick="switchTab('about')">About Us</a></li>
+        </ul>
+    </nav>
     <div class="container">
-        <h1>CvSU Main (Indang) Attendance</h1>
-        <p class="subtitle">Scan QR code or enter ID starting with 26101.</p>
-
-        <!-- Camera Scanner Card -->
-        <div class="scanner-card">
-            <div id="reader"></div>
-        </div>
-
-        <!-- Manual Attendance Entry -->
-        <div class="manual-card">
-            <h3>Manual Attendance Entry</h3>
-            <form id="attendanceForm">
-                <input type="text" id="studentIdInput" placeholder="Enter Student ID (e.g. 261010001)" required>
-                <button type="submit">Mark Present</button>
-            </form>
-        </div>
-
-        <!-- NEW: Student Registration Form -->
-        <div class="register-card">
-            <h3>Register New Student to Database</h3>
-            <form id="registerForm">
-                <input type="text" id="newId" placeholder="ID (must start with 26101)" required>
-                <input type="text" id="newName" placeholder="Full Name" required>
-                <input type="text" id="newProgram" placeholder="Program / Course (e.g. BSIT)" required>
-                <button type="submit" class="register-btn">Save Student</button>
-            </form>
-        </div>
-
-        <!-- Attendance Logs -->
-        <div class="log-card">
-            <div class="log-header">
-                <h3>Today's Attendance Log</h3>
-                <button id="exportBtn" class="export-btn" onclick="exportLogsToText()">Download Log File</button>
+        <main id="homePage" class="tab-page active-page">
+            <header class="dashboard-header">
+                <h1>CvSU Main (Indang) Attendance</h1>
+                <p class="subtitle">Real-time web-based attendance tracker with strict 26101 ID prefix verification.</p>
+            </header>
+            <div class="dashboard-grid">
+                <div class="left-col">
+                    <section class="scanner-card"> 
+                        <h3 id="scanner-heading">Live Camera QR Scanner</h3>
+                        <div id="reader"></div>
+                    </section>
+                    
+                    <section class="manual-card">
+                        <h3 id="manual-heading">Manual Attendance Entry</h3>
+                        <form id="attendanceForm">
+                            <input type="text" id="studentIdInput" placeholder="Enter ID (26101...)" autocomplete="off" required>
+                            <button type="submit">Mark Present</button>
+                        </form>
+                    </section>
+                    <div class="system-docs">
+                        <h4>System Security Rules:</h4>
+                        <p>• Scanned or typed IDs must strictly begin with <strong>26101</strong>.</p>
+                        <p>• Student records must be registered in the database before marking attendance.</p>
+                    </div>
+                </div>
+                <div class="right-col">
+                    <section class="register-card">
+                        <h3 id="register-heading">Register New Student Record</h3>
+                        <form id="registerForm">
+                           
+                            <input type="text" id="newId" placeholder="ID (26101...)" autocomplete="off" required>
+                            <input type="text" id="newName" placeholder="Full Name" autocomplete="off" required>
+                            <input type="text" id="newProgram" placeholder="Course e.g. BSIT" autocomplete="off" required>
+                            <button type="submit" class="register-btn">Save Student</button>
+                        </form>
+                    </section>
+                    <section class="log-card">
+                        <div class="log-header">
+                            <h3 id="log-heading">Today's Attendance Log</h3>
+                            <button id="exportBtn" class="export-btn" onclick="exportLogsToText()" title="Download Attendance Text Report">Download Log File</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table id="attendanceTable">
+                                <thead>
+                                    <tr>
+                                        <th>Student ID</th>
+                                        <th>Name</th>
+                                        <th>Program / Course</th>
+                                        <th>Timestamp</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="logTableBody">
+                                    <tr class="empty-row">
+                                        <td colspan="4">No attendance recorded yet today.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
             </div>
-            <table id="attendanceTable">
-                <thead>
-                    <tr>
-                        <th>Student ID</th>
-                        <th>Name</th>
-                        <th>Program / Course</th>
-                        <th>Time</th>
-                    </tr>
-                </thead>
-                <tbody id="logTableBody">
-                    <tr class="empty-row">
-                        <td colspan="4">No attendance recorded yet today.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        </main>
+       
+        <section id="aboutPage" class="tab-page">
+            <div class="proposal-card">
+                
+                <span class="proposal-kicker">FINAL PROJECT PROPOSAL</span>
+                <h2 class="proposal-title">CAMERA-BASED ID SCANNER FOR A WEB-BASED STUDENT ATTENDANCE MONITORING SYSTEM</h2>
+                <p class="proposal-desc">
+                    Developed exclusively for <strong>Cavite State University – Main Campus (Indang)</strong>, validating student IDs prefixed with <strong>26101</strong> for fast, paperless classroom attendance logging and automated database management.
+                </p>
+                <hr class="proposal-divider">
+                <div class="members-section">
+                    <span class="members-label">GROUP MEMBERS</span>
+                    <div class="members-list">
+                        <div class="member-item">
+                            <span class="member-icon" aria-hidden="true">👤</span>
+                            <span>VINCE JERALD O. RUBI</span>
+                        </div>
+                        <div class="member-item">
+                            <span class="member-icon" aria-hidden="true">👤</span>
+                            <span>DAVID SEAN M. MORENO</span>
+                        </div>
+                        <div class="member-item">
+                            <span class="member-icon" aria-hidden="true">👤</span>
+                            <span>JAIRUS LEI O. DANCALAN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
