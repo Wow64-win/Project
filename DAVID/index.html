@@ -1,114 +1,151 @@
+
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CvSU Main (Indang) - Attendance</title> 
-    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <title>tarantadong group</title>
+
+
+
+
+
+
     <link rel="stylesheet" href="style.css">
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+
+
+
+
+
+
 </head>
-<body style="margin: 0;"> 
-    <nav class="navbar" role="navigation" aria-label="Main Navigation">
-        <div class="nav-brand">CvSU Attendance System</div>
-        <ul class="nav-links">
-           
-            <li><a id=navHome class="active" onclick="switchTab('home')">Home / Dashboard</a></li>
-            <li><a id="navAbout" onclick="switchTab('about')">About Us</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-        <main id="homePage" class="tab-page active-page">
-            <header class="dashboard-header">
-                <h1>CvSU Main (Indang) Attendance</h1>
-                <p class="subtitle">Real-time web-based attendance tracker with strict 26101 ID prefix verification.</p>
-            </header>
-            <div class="dashboard-grid">
-                <div class="left-col">
-                    <section class="scanner-card"> 
-                        <h3 id="scanner-heading">Live Camera QR Scanner</h3>
-                        <div id="reader"></div>
-                    </section>
-                    
-                    <section class="manual-card">
-                        <h3 id="manual-heading">Manual Attendance Entry</h3>
-                        <form id="attendanceForm">
-                            <input type="text" id="studentIdInput" placeholder="Enter ID (26101...)" autocomplete="off" required>
-                            <button type="submit">Mark Present</button>
-                        </form>
-                    </section>
-                    <div class="system-docs">
-                        <h4>System Security Rules:</h4>
-                        <p>• Scanned or typed IDs must strictly begin with <strong>26101</strong>.</p>
-                        <p>• Student records must be registered in the database before marking attendance.</p>
-                    </div>
-                </div>
-                <div class="right-col">
-                    <section class="register-card">
-                        <h3 id="register-heading">Register New Student Record</h3>
-                        <form id="registerForm">
-                           
-                            <input type="text" id="newId" placeholder="ID (26101...)" autocomplete="off" required>
-                            <input type="text" id="newName" placeholder="Full Name" autocomplete="off" required>
-                            <input type="text" id="newProgram" placeholder="Course e.g. BSIT" autocomplete="off" required>
-                            <button type="submit" class="register-btn">Save Student</button>
-                        </form>
-                    </section>
-                    <section class="log-card">
-                        <div class="log-header">
-                            <h3 id="log-heading">Today's Attendance Log</h3>
-                            <button id="exportBtn" class="export-btn" onclick="exportLogsToText()" title="Download Attendance Text Report">Download Log File</button>
-                        </div>
-                        <div class="table-responsive">
-                            <table id="attendanceTable">
-                                <thead>
-                                    <tr>
-                                        <th>Student ID</th>
-                                        <th>Name</th>
-                                        <th>Program / Course</th>
-                                        <th>Timestamp</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="logTableBody">
-                                    <tr class="empty-row">
-                                        <td colspan="4">No attendance recorded yet today.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </main>
-       
-        <section id="aboutPage" class="tab-page">
-            <div class="proposal-card">
+<body>
+
+    <header>
+        <h1>Student Attendance</h1>
+        <p>QR Code-Based Attendance System</p>
+    </header>
+
+    <main class="container">
+
+    
+
+        <section class="card">
+            <h2>Student Registration</h2>
+
+            <form id="registrationForm">
+
+                <label>Full Name</label>
+                <input type="text" id="name" placeholder="Enter full name" required>
+
+
+
+
+                <label>Student Number</label>
+                <input type="text" id="studentNumber" placeholder="Enter student number" required>
+
+
+                <label>Email Address</label>
+                <input type="email" id="email" placeholder="Enter email address" required>
+
+
+
+
+                <label>Course</label>
+                <select id="course" required>
+                    <option value="">Select Course</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Computer Science">Computer Science</option>
+                </select>
+
                 
-                <span class="proposal-kicker">FINAL PROJECT PROPOSAL</span>
-                <h2 class="proposal-title">CAMERA-BASED ID SCANNER FOR A WEB-BASED STUDENT ATTENDANCE MONITORING SYSTEM</h2>
-                <p class="proposal-desc">
-                    Developed exclusively for <strong>Cavite State University – Main Campus (Indang)</strong>, validating student IDs prefixed with <strong>26101</strong> for fast, paperless classroom attendance logging and automated database management.
-                </p>
-                <hr class="proposal-divider">
-                <div class="members-section">
-                    <span class="members-label">GROUP MEMBERS</span>
-                    <div class="members-list">
-                        <div class="member-item">
-                            <span class="member-icon" aria-hidden="true">👤</span>
-                            <span>VINCE JERALD O. RUBI</span>
-                        </div>
-                        <div class="member-item">
-                            <span class="member-icon" aria-hidden="true">👤</span>
-                            <span>DAVID SEAN M. MORENO</span>
-                        </div>
-                        <div class="member-item">
-                            <span class="member-icon" aria-hidden="true">👤</span>
-                            <span>JAIRUS LEI O. DANCALAN</span>
-                        </div>
-                    </div>
-                </div>
+
+                <label>Year Level</label>
+                <select id="yearLevel" required>
+                    <option value="">Select Year Level</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                </select>
+
+                <button type="submit">Register Student</button>
+            </form>
+
+            <div id="qrSection" style="display:none;">
+                <h3>Student QR Code</h3>
+                <div id="qrcode"></div>
+                <p id="qrStudentInfo"></p>
+                <button type="button" id="downloadQR">Download QR Code</button>
             </div>
         </section>
-    </div>
+
+        
+        <section class="card">
+            <h2>Scan Student QR Code</h2>
+
+            <div id="reader"></div>
+
+            <p id="scanResult">Scanner is ready.</p>
+        </section>
+
+        
+        <section class="card">
+            <h2>Attendance Dashboard</h2>
+
+            <div class="dashboard">
+                <div class="stat-box">
+                    <h3 id="totalStudents">0</h3>
+                    <p>Registered Students</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3 id="presentToday">0</h3>
+                    <p>Present Today</p>
+                </div>
+            </div>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search student..."
+            >
+
+            <h3>Attendance Records</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student Number</th>
+                            <th>Name</th>
+                            <th>Course</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="attendanceTable">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Student Attendance Monitoring System by group ng igop</p>
+    </footer>
+
     <script src="script.js"></script>
+
 </body>
 </html>
