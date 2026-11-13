@@ -1,0 +1,281 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #111318;
+    color: #f1f1f1;
+    line-height: 1.5;
+}
+
+header {
+    background: #1b1e25;
+    padding: 22px 30px;
+    border-bottom: 1px solid #30343d;
+}
+
+header h1 {
+    font-size: 23px;
+    font-weight: 600;
+}
+
+header p {
+    color: #a0a5b1;
+    font-size: 14px;
+}
+
+.container {
+    width: 96%;
+    max-width: 1600px;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.card {
+    background: #1b1e25;
+    border: 1px solid #30343d;
+    border-radius: 8px;
+    padding: 22px;
+    min-width: 0;
+}
+
+.card h2 {
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    font-size: 16px;
+    margin: 18px 0 12px;
+}
+
+.card:nth-child(3) {
+    grid-column: 1 / -1;
+}
+
+form label {
+    display: block;
+    color: #a0a5b1;
+    font-size: 14px;
+    margin: 12px 0 6px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    background: #252932;
+    border: 1px solid #30343d;
+    border-radius: 5px;
+    color: #f1f1f1;
+    font-size: 14px;
+    margin-bottom: 8px;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #6366f1;
+}
+
+input::placeholder {
+    color: #858b98;
+}
+
+select option {
+    background: #252932;
+    color: #f1f1f1;
+}
+
+button {
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 11px 17px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #5053d6;
+}
+
+#qrSection {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background: #252932;
+    border-radius: 6px;
+    text-align: center;
+}
+
+#qrcode {
+    display: flex;
+    justify-content: center;
+    background: white;
+    width: fit-content;
+    padding: 12px;
+    margin: 15px auto;
+    border-radius: 5px;
+}
+
+#qrcode img,
+#qrcode canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+#qrStudentInfo {
+    color: #a0a5b1;
+    font-size: 14px;
+}
+
+#reader {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+#reader video {
+    width: 100%;
+}
+
+#scanResult {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #4ade80;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-box {
+    background: #252932;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.stat-box h3 {
+    font-size: 28px;
+    color: #818cf8;
+    margin: 0 0 5px;
+}
+
+.stat-box p {
+    color: #a0a5b1;
+    font-size: 13px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+th,
+td {
+    padding: 13px 15px;
+    text-align: left;
+    border-bottom: 1px solid #30343d;
+    font-size: 14px;
+}
+
+th {
+    background: #252932;
+    color: #a0a5b1;
+    font-weight: 600;
+}
+
+td {
+    color: #f1f1f1;
+}
+
+tbody tr:hover {
+    background: #252932;
+}
+
+footer {
+    padding: 18px 30px;
+    text-align: center;
+    background: #1b1e25;
+    border-top: 1px solid #30343d;
+    color: #a0a5b1;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 18px;
+    }
+
+    header h1 {
+        font-size: 19px;
+    }
+
+    .container {
+        width: 94%;
+        margin: 15px auto;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .card:nth-child(3) {
+        grid-column: auto;
+    }
+
+    .dashboard {
+        gap: 10px;
+    }
+
+    .stat-box {
+        padding: 15px 8px;
+    }
+
+    .stat-box h3 {
+        font-size: 23px;
+    }
+
+    .stat-box p {
+        font-size: 11px;
+    }
+
+    input,
+    select {
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    footer {
+        padding: 15px;
+    }
+}
