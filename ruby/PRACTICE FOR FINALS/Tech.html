@@ -1,33 +1,53 @@
 
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tarantadong group</title>
 
-
-
-
-
-
     <link rel="stylesheet" href="style2.css">
-
-
-
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://unpkg.com/html5-qrcode"></script>
-
-
-
-
-
-
-
 </head>
+
 <body>
 
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="NavbarContainer">
+
+            <a href="index.html" id="navbarlogo">Home</a>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li>
+                    <a href="index.html" class="navbar-links">Home</a>
+                </li>
+
+                <li>
+                    <a href="about.html" class="navbar-links">About</a>
+                </li>
+
+                <li>
+                    <a href="scanner.html" class="navbar-links active">Scanner</a>
+                </li>
+
+                <li class="navbar-btn">
+                    <a href="contact.html" class="button">Contact</a>
+                </li>
+            </ul>
+
+            <button class="navbar__toggle" id="mobileMenu" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+        </div>
+    </nav>
+
+    <!-- HEADER -->
     <header>
         <h1>Student Attendance</h1>
         <p>QR Code-Based Attendance System</p>
@@ -35,8 +55,7 @@
 
     <main class="container">
 
-    
-
+        <!-- STUDENT REGISTRATION -->
         <section class="card">
             <h2>Student Registration</h2>
 
@@ -45,18 +64,11 @@
                 <label>Full Name</label>
                 <input type="text" id="name" placeholder="Enter full name" required>
 
-
-
-
                 <label>Student Number</label>
                 <input type="text" id="studentNumber" placeholder="Enter student number" required>
 
-
                 <label>Email Address</label>
                 <input type="email" id="email" placeholder="Enter email address" required>
-
-
-
 
                 <label>Course</label>
                 <select id="course" required>
@@ -64,8 +76,6 @@
                     <option value="Information Technology">Information Technology</option>
                     <option value="Computer Science">Computer Science</option>
                 </select>
-
-                
 
                 <label>Year Level</label>
                 <select id="yearLevel" required>
@@ -77,6 +87,7 @@
                 </select>
 
                 <button type="submit">Register Student</button>
+
             </form>
 
             <div id="qrSection" style="display:none;">
@@ -87,7 +98,7 @@
             </div>
         </section>
 
-        
+        <!-- QR SCANNER -->
         <section class="card">
             <h2>Scan Student QR Code</h2>
 
@@ -96,11 +107,12 @@
             <p id="scanResult">Scanner is ready.</p>
         </section>
 
-        
+        <!-- ATTENDANCE DASHBOARD -->
         <section class="card">
             <h2>Attendance Dashboard</h2>
 
             <div class="dashboard">
+
                 <div class="stat-box">
                     <h3 id="totalStudents">0</h3>
                     <p>Registered Students</p>
@@ -110,6 +122,7 @@
                     <h3 id="presentToday">0</h3>
                     <p>Present Today</p>
                 </div>
+
             </div>
 
             <input
@@ -146,6 +159,17 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- MOBILE NAVIGATION SCRIPT -->
+    <script>
+        const mobileMenu = document.getElementById("mobileMenu");
+        const navbarMenu = document.getElementById("navbarMenu");
+
+        mobileMenu.addEventListener("click", function() {
+            mobileMenu.classList.toggle("open");
+            navbarMenu.classList.toggle("open");
+        });
+    </script>
 
 </body>
 </html>

@@ -1,22 +1,30 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CVSU WEBSITE</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<!---NAV BAR TO HA WAG BABAGUHIN KOTONGAN MAGBAGO-->
+
+    <!-- NAVBAR -->
     <nav class="navbar">
+
         <div class="NavbarContainer">
-            <a href="index.html" id="navbarlogo">
-    <img src="logo.jpg" alt="Logo" class="logo-img">
-</a>
-<!---ETO TOGGLE BUTTONS UNG SA TAAS NITO LOGO LANG OKAYY? - RUBI-->
+
+            <a href="#home" id="navbarlogo">
+                <img src="logo.jpg" alt="Logo" class="logo-img">
+            </a>
+
             <div class="navbar__toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -24,34 +32,177 @@
             </div>
 
             <ul class="navbar-menu">
-                <li class="navbar-item"><a href="index.html" class="navbar-links active">Home</a></li>
-                <li class="navbar-item"><a href="Tech.html" class="navbar-links">Scanner</a></li>
-                <li class="navbar-item"><a href="#about" class="navbar-links">About us</a></li>
-                <li class="navbar-btn"><a href="#contact" class="button">Contact</a></li>
+
+                <li class="navbar-item">
+                    <a href="#home" class="navbar-links active">Home</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="Tech.html" class="navbar-links">Scanner</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="#about" class="navbar-links">About us</a>
+                </li>
+
+                <li class="navbar-btn">
+                    <a href="#contact" class="button">Contact</a>
+                </li>
+
             </ul>
+
         </div>
+
     </nav>
 
+
     <main>
-        <section class="hero">
-            <div class="hero-text">
-                <h1>Smart Attendance System</h1>
-                <p></p>
-                <a href="Tech.html" class="button">Try the Scanner</a>
+
+        <!-- HOME SECTION -->
+        <section class="hero" id="home">
+            <div class="hero-title-box"><div class="hero-text">
+
+    <h1>Smart Attendance ID Scanner System</h1>
+
+    <p>
+        A faster and easier way to manage student attendance
+        using QR code technology.
+    </p>
+
+    <div class="hero-button">
+        <a href="Tech.html" class="button">Try the Scanner</a>
+    </div>
+
+</div>
+
             </div>
+
         </section>
 
+
+        <!-- ABOUT US SECTION -->
         <section class="about" id="about">
-            <h2>About Us</h2>
-            <p></p>
+
+            <div class="about-content">
+
+                <h2>About Us</h2>
+
+                <h3>Introduction</h3>
+
+                <p>
+                    We are a group of students who made a decision to build
+                    a website that makes checking attendance easier, faster
+                    and more efficient. Our system creates a QR code through
+                    our website. This QR code can be put in your IDs for the
+                    camera scanner to read and identify which students are
+                    present and keep track of their attendance.
+
+                    Instead of writing names by hand or checking each
+                    student one at a time, students can just show their QR
+                    code for scanning. With this system, we want to reduce
+                    the time needed for checking attendance, minimize
+                    mistakes when writing down names and create a better
+                    way to handle student attendance records.
+                </p>
+
+
+                <h3>Our Mission</h3>
+
+                <p>
+                    Our mission is to provide a fast and reliable attendance
+                    monitoring system using QR codes. We aim to make the
+                    attendance process more convenient by reducing manual
+                    recording, minimizing errors and keeping student
+                    attendance records organized. Through this website,
+                    we want to use current technology to improve the way
+                    attendance is managed in our school and make the
+                    attendance process easier for both students and teachers.
+                </p>
+
+
+                <h3>Our Vision</h3>
+
+                <p>
+                    Our goal is to create a system that is trusted and
+                    works by scanning QR codes on IDs. This system helps
+                    track student attendance and makes taking attendance
+                    faster, simpler and more organized. We want to improve
+                    the way attendance is taken by letting students use
+                    their school IDs for identification and digital
+                    attendance recording.
+                </p>
+
+            </div>
+
+
+            <!-- MEET THE TEAM -->
+            <div class="team-section">
+
+                <h2>Meet Our Team!</h2>
+
+                <p class="team-description">
+                    Get to know the people behind our project.
+                    Drag the characters to rotate them!
+                </p>
+
+
+                <div class="team-container">
+
+                    <div class="team-member">
+
+                        <div class="character">
+                            <img src="moreno.png" alt="Moreno">
+                        </div>
+
+                        <h3>Moreno</h3>
+                        <p>Student Developer</p>
+
+                    </div>
+
+
+                    <div class="team-member">
+
+                        <div class="character">
+                            <img src="dancalan.png" alt="Dancalan">
+                        </div>
+
+                        <h3>Dancalan</h3>
+                        <p>Student Developer</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </section>
 
-        <section class="about" id="contact">
-            <h2>Contact</h2>
-            <p></p>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact" id="contact">
+
+            <h2>Contact Us</h2>
+
+            <p>
+                <a href="https://www.facebook.com/jairuslei.dancalan.5" target="_blank">Dancalan`s Facebook</a>
+                Dancalan: 0997022065
+            </p>
+            <p>
+                <a href="https://www.facebook.com/profile.php?id=61594920039950" target="_blank">Moreno`s Facebook</a>
+                Moreno: 09637628001
+            </p>
+
         </section>
+
     </main>
 
-    <script src="script.js"></script>
+
+    <footer>
+        <p>Smart Attendance ID Scanner System</p>
+    </footer>
+
+
+    <script src="About.js"></script>
+
 </body>
 </html>
