@@ -4,32 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CVSU WEBSITE</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar"> 
-        <div class="NavbarContainer"></div>
-            <a href="/" id="navbarlogo">NEXT</a>
+<!---NAV BAR TO HA WAG BABAGUHIN KOTONGAN MAGBAGO-->
+    <nav class="navbar">
+        <div class="NavbarContainer">
+            <a href="index.html" id="navbarlogo">
+    <img src="logo.jpg" alt="Logo" class="logo-img">
+</a>
+<!---ETO TOGGLE BUTTONS UNG SA TAAS NITO LOGO LANG OKAYY? - RUBI-->
             <div class="navbar__toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-                </div>
-                <ul class="navbar-menu"></ul>
-                <li class="navbar-item">
-                <a href="/" class="navbar-links">home</a>
-                </li>
-                <li class="navbar-item">
-                <a href="/Tech.html" class="navbar-links">Scanner</a>
-                </li>
-                    <li class="navbar-item">
-                    <a href="/" class="navbar-links">About us</a>
-                </li>
-                    <li class="navbar-btn"><a href="/" 
-                        class="button">Contact</a>
-                </li>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="index.html" class="navbar-links active">Home</a></li>
+                <li class="navbar-item"><a href="Tech.html" class="navbar-links">Scanner</a></li>
+                <li class="navbar-item"><a href="#about" class="navbar-links">About us</a></li>
+                <li class="navbar-btn"><a href="#contact" class="button">Contact</a></li>
             </ul>
         </div>
-        </nav>
-    </body>
-</html> 
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Smart Attendance System</h1>
+                <p></p>
+                <a href="Tech.html" class="button">Try the Scanner</a>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <h2>About Us</h2>
+            <p></p>
+        </section>
+
+        <section class="about" id="contact">
+            <h2>Contact</h2>
+            <p></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
