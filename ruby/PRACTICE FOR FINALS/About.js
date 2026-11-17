@@ -118,3 +118,37 @@ hero.addEventListener("mouseleave", function() {
     hero.style.setProperty("--mouse-y", "50%");
 
 });
+
+
+const sections = document.querySelectorAll("#home, #about, #contact");
+const navLinks = document.querySelectorAll(".navbar-links");
+
+window.addEventListener("scroll", function() {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.offsetHeight;
+
+        if (window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight) {
+
+            current = section.getAttribute("id");
+
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+
+    });
+
+});

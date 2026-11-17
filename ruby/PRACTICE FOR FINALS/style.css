@@ -87,6 +87,9 @@ h1, h2, h3 {
 .navbar-links.active {
     color: var(--white);
 }
+.navbar-links.active::after {
+    transform: scaleX(1);
+}
 
 .navbar-links::after {
     content: "";
@@ -119,7 +122,6 @@ h1, h2, h3 {
     background-color: var(--gray-light);
     transform: translateY(-2px);
 }
-
 
 /*** HERO SECTION WITH MOUSE SPOTLIGHT ***/
 
@@ -202,7 +204,6 @@ h1, h2, h3 {
 }
 
 
-/*** ABOUT SECTION ***/
 
 .about {
     padding: 100px 10%;

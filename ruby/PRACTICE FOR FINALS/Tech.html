@@ -1,41 +1,57 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tarantadong group</title>
+
+    <title>Smart Attendance ID Scanner System</title>
+
+    <link rel="icon" type="image/png" href="logo.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style2.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://unpkg.com/html5-qrcode"></script>
+
 </head>
 
 <body>
 
-    <!-- NAVIGATION BAR -->
+    
     <nav class="navbar">
+
         <div class="NavbarContainer">
 
-            <a href="index.html" id="navbarlogo">Home</a>
+            <a href="index.html#home" id="navbarlogo">
+                <img src="logo.jpg" alt="Logo" class="logo-img">
+            </a>
 
             <ul class="navbar-menu" id="navbarMenu">
-                <li>
-                    <a href="index.html" class="navbar-links">Home</a>
+
+                <li class="navbar-item">
+                    <a href="index.html#home" class="navbar-links">Home</a>
                 </li>
 
-                <li>
-                    <a href="about.html" class="navbar-links">About</a>
+                <li class="navbar-item">
+                    <a href="Tech.html" class="navbar-links active">Scanner</a>
                 </li>
 
-                <li>
-                    <a href="scanner.html" class="navbar-links active">Scanner</a>
+                <li class="navbar-item">
+                    <a href="index.html#about" class="navbar-links">About Us</a>
                 </li>
 
                 <li class="navbar-btn">
-                    <a href="contact.html" class="button">Contact</a>
+                    <a href="index.html#contact" class="button">Contact</a>
                 </li>
+
             </ul>
 
             <button class="navbar__toggle" id="mobileMenu" aria-label="Toggle navigation">
@@ -45,18 +61,21 @@
             </button>
 
         </div>
+
     </nav>
 
-    <!-- HEADER -->
     <header>
+
         <h1>Student Attendance</h1>
         <p>QR Code-Based Attendance System</p>
+
     </header>
 
     <main class="container">
 
-        <!-- STUDENT REGISTRATION -->
+        
         <section class="card">
+
             <h2>Student Registration</h2>
 
             <form id="registrationForm">
@@ -71,6 +90,7 @@
                 <input type="email" id="email" placeholder="Enter email address" required>
 
                 <label>Course</label>
+
                 <select id="course" required>
                     <option value="">Select Course</option>
                     <option value="Information Technology">Information Technology</option>
@@ -78,6 +98,7 @@
                 </select>
 
                 <label>Year Level</label>
+
                 <select id="yearLevel" required>
                     <option value="">Select Year Level</option>
                     <option value="1st Year">1st Year</option>
@@ -90,25 +111,35 @@
 
             </form>
 
+
             <div id="qrSection" style="display:none;">
+
                 <h3>Student QR Code</h3>
+
                 <div id="qrcode"></div>
+
                 <p id="qrStudentInfo"></p>
-                <button type="button" id="downloadQR">Download QR Code</button>
+
+                <button type="button" id="downloadQR">
+                    Download QR Code
+                </button>
+
             </div>
+
         </section>
 
-        <!-- QR SCANNER -->
+    
         <section class="card">
+
             <h2>Scan Student QR Code</h2>
 
             <div id="reader"></div>
 
             <p id="scanResult">Scanner is ready.</p>
-        </section>
 
-        <!-- ATTENDANCE DASHBOARD -->
+        </section>
         <section class="card">
+
             <h2>Attendance Dashboard</h2>
 
             <div class="dashboard">
@@ -125,17 +156,16 @@
 
             </div>
 
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search student..."
-            >
+            <input type="text" id="searchInput" placeholder="Search student...">
 
             <h3>Attendance Records</h3>
 
             <div class="table-container">
+
                 <table>
+
                     <thead>
+
                         <tr>
                             <th>Student Number</th>
                             <th>Name</th>
@@ -144,32 +174,53 @@
                             <th>Time</th>
                             <th>Status</th>
                         </tr>
+
                     </thead>
 
-                    <tbody id="attendanceTable">
-                    </tbody>
+                    <tbody id="attendanceTable"></tbody>
+
                 </table>
+
             </div>
+
         </section>
 
     </main>
 
+    <!-- FOOTER -->
     <footer>
-        <p>Student Attendance Monitoring System by group ng igop</p>
+        <p>Smart Attendance ID Scanner System</p>
     </footer>
 
+    <!-- MAIN JAVASCRIPT -->
     <script src="script.js"></script>
 
-    <!-- MOBILE NAVIGATION SCRIPT -->
+    <!-- NAVBAR JAVASCRIPT -->
     <script>
+
         const mobileMenu = document.getElementById("mobileMenu");
         const navbarMenu = document.getElementById("navbarMenu");
 
         mobileMenu.addEventListener("click", function() {
+
             mobileMenu.classList.toggle("open");
             navbarMenu.classList.toggle("open");
+
         });
+
+        document.querySelectorAll(".navbar-links, .navbar-btn a").forEach(link => {
+
+            link.addEventListener("click", function() {
+
+                mobileMenu.classList.remove("open");
+                navbarMenu.classList.remove("open");
+
+            });
+
+        });
+
     </script>
 
 </body>
+
 </html>
